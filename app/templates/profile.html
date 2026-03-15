@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Профиль</h2>
+<p>Имя: {{ user.first_name }}</p>
+<p>Фамилия: {{ user.last_name }}</p>
+<p>Логин: {{ user.username }}</p>
+<a href="{{ url_for('user.analytics') }}">Аналитика</a>
+{% endblock %}

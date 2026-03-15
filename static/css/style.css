@@ -1,0 +1,8 @@
+body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+nav { display: flex; justify-content: space-between; margin-bottom: 20px; }
+input { display: block; margin: 8px 0; padding: 6px; width: 100%; box-sizing: border-box; }
+button { padding: 8px 16px; cursor: pointer; }
+.flash { background: #fdd; padding: 8px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+a { display: inline-block; margin-top: 10px; }

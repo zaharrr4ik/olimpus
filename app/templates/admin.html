@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Панель администратора</h2>
+<a href="{{ url_for('admin.create_user') }}">Создать пользователя</a>
+<table>
+    <tr><th>Логин</th><th>Имя</th><th>Фамилия</th></tr>
+    {% for u in users %}
+    <tr><td>{{ u.username }}</td><td>{{ u.first_name }}</td><td>{{ u.last_name }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
