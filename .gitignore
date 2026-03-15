@@ -7,3 +7,4 @@ db.sqlite3
 __temp/
 Data/
 model/model.h5
+.idea/
