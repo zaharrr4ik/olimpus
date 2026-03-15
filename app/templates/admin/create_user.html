@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Создать пользователя</h2>
-<form method="post">
-    <input type="text" name="first_name" placeholder="Имя" required>
-    <input type="text" name="last_name" placeholder="Фамилия" required>
-    <input type="text" name="username" placeholder="Логин" required>
-    <input type="password" name="password" placeholder="Пароль" required>
-    <button type="submit">Создать</button>
-</form>
-<a href="{{ url_for('admin.dashboard') }}">Назад</a>
+<div class="page-header">
+    <div>
+        <h2>Новый пользователь</h2>
+        <div style="color:var(--text-muted);font-size:13px;margin-top:4px;">Заполните данные для создания аккаунта</div>
+    </div>
+    <a href="{{ url_for('admin.dashboard') }}" class="btn btn-ghost">← Назад</a>
+</div>
+<div class="card form-card">
+    <form method="post">
+        <label class="form-label">Имя</label>
+        <input type="text" name="first_name" placeholder="Введите имя" required>
+        <label class="form-label">Фамилия</label>
+        <input type="text" name="last_name" placeholder="Введите фамилию" required>
+        <div class="divider"></div>
+        <label class="form-label">Логин</label>
+        <input type="text" name="username" placeholder="Введите логин" required>
+        <label class="form-label">Пароль</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+        <button type="submit" style="width:100%; justify-content:center; margin-top:8px;">
+            Создать пользователя
+        </button>
+    </form>
+</div>
 {% endblock %}

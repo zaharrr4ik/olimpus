@@ -4,6 +4,12 @@ import os
 
 TARGET_LEN = 80000
 
+def load_test_npz(path):
+    data = np.load(path, allow_pickle=True)
+    test_x = data['test_x']
+    test_y = data['test_y'] if 'test_y' in data else None
+    return test_x, test_y
+
 def build_class_mapping(train_y):
     names = sorted(set(s[32:] for s in train_y))
     return {name: i for i, name in enumerate(names)}

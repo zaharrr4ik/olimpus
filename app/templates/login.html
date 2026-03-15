@@ -1,9 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Вход</h2>
-<form method="post">
-    <input type="text" name="username" placeholder="Логин" required>
-    <input type="password" name="password" placeholder="Пароль" required>
-    <button type="submit">Войти</button>
-</form>
+<div class="login-wrap">
+    <div class="login-box">
+        <div class="login-logo">
+            <div class="login-logo-text">Olimpus</div>
+            <div class="login-logo-sub">Система классификации радиосигналов · 2226</div>
+        </div>
+        <div class="card">
+            <form method="post">
+                <label class="form-label">Логин</label>
+                <input type="text" name="username" placeholder="Введите логин" required autofocus>
+                <label class="form-label">Пароль</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+                <button type="submit" style="width:100%; justify-content:center; margin-top:8px;">
+                    Войти в систему
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

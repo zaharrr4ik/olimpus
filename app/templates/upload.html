@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2>Загрузка тестового набора</h2>
+        <div style="color:var(--text-muted);font-size:13px;margin-top:4px;">Классификация радиосигналов нейросетью</div>
+    </div>
+    <a href="{{ url_for('user.analytics') }}" class="btn btn-ghost">Аналитика →</a>
+</div>
+<div class="card form-card">
+    <p class="upload-hint">
+        Загрузите архив <strong style="color:var(--accent);">.npz</strong> с тестовыми данными.<br>
+        Модель автоматически классифицирует каждый сигнал и вернёт результаты.
+    </p>
+    <form method="post" enctype="multipart/form-data">
+        <label class="form-label">Файл набора данных</label>
+        <input type="file" name="file" accept=".npz" required>
+        <button type="submit" style="width:100%; justify-content:center; margin-top:8px;">
+            Запустить классификацию
+        </button>
+    </form>
+</div>
+{% endblock %}

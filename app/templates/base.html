@@ -2,14 +2,25 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olimpus</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <nav>
+        <span class="nav-brand">Olimpus</span>
         {% if current_user.is_authenticated %}
-            <span>{{ current_user.first_name }} {{ current_user.last_name }}</span>
+        <div class="nav-right">
+            <span class="nav-user">{{ current_user.first_name }} {{ current_user.last_name }}</span>
+            {% if current_user.role == 'user' %}
+            <a href="{{ url_for('user.profile') }}">Профиль</a>
+            <a href="{{ url_for('user.analytics') }}">Аналитика</a>
+            {% endif %}
+            {% if current_user.role == 'admin' %}
+            <a href="{{ url_for('admin.dashboard') }}">Пользователи</a>
+            {% endif %}
             <a href="{{ url_for('auth.logout') }}">Выйти</a>
+        </div>
         {% endif %}
     </nav>
     <main>

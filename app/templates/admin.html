@@ -1,11 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Панель администратора</h2>
-<a href="{{ url_for('admin.create_user') }}">Создать пользователя</a>
-<table>
-    <tr><th>Логин</th><th>Имя</th><th>Фамилия</th></tr>
-    {% for u in users %}
-    <tr><td>{{ u.username }}</td><td>{{ u.first_name }}</td><td>{{ u.last_name }}</td></tr>
-    {% endfor %}
-</table>
+<div class="page-header">
+    <div>
+        <h2>Пользователи</h2>
+        <div style="color:var(--text-muted);font-size:13px;margin-top:4px;">{{ users|length }} зарегистрировано</div>
+    </div>
+    <a href="{{ url_for('admin.create_user') }}" class="btn">+ Новый пользователь</a>
+</div>
+
+<div class="card table-card">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Логин</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <td style="color:var(--text-muted);">{{ loop.index }}</td>
+                <td><span class="badge">{{ u.username }}</span></td>
+                <td>{{ u.first_name }}</td>
+                <td>{{ u.last_name }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">
+                    <div class="empty">
+                        <div class="empty-icon">👤</div>
+                        <div class="empty-text">Пользователи ещё не созданы</div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
